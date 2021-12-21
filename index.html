@@ -14,16 +14,18 @@
         Clique duas vezes em um item para marcá-lo como completo
       </p>
     </header>
+    <main>
+      <input type="text" placeholder="Nova Tarefa" id="texto-tarefa" />
 
-    <input type="text" placeholder="Nova Tarefa" id="texto-tarefa" />
+      <button id="criar-tarefa">Adicionar Tarefa</button>
 
-    <button id="criar-tarefa">Adicionar Tarefa</button>
-    <br />
-    <button id="apaga-tudo">Apagar Todas as Tarefas</button>
-    <button id="remover-finalizados">Apagar Tarefa Selecionada</button>
+      <ol id="lista-tarefas"></ol>
 
-    <ol id="lista-tarefas"></ol>
-
+      <button id="apaga-tudo">Apagar Todas as Tarefas</button>
+      <button id="remover-finalizados">Apagar Tarefa Finalizada</button>
+      <button id="salvar-tarefas">Salvas Tarefas</button>
+      <button id="remover-selecionado">Remover Selecionado</button>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
