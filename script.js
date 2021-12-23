@@ -127,30 +127,30 @@ window.onload = function () {
       itemSelecionado !== primeiroFilho &&
       itemAnterior !== null
     ) {
-      lista.insertBefore(itemSelecionado, itemAnterior);
+      lista.insertBefore(itemSelecionado, itemAnterior); //O método Node.insertBefore() insere um nó antes do nó de referência como um filho de um nó pai especificado.
     }
   }
+};
 
-  //! Para Baixo
-  let botaoBaixo = document.querySelector('#mover-baixo');
-  botaoBaixo.addEventListener('click', paraBaixo);
+//! Para Baixo
+let botaoBaixo = document.querySelector('#mover-baixo');
+botaoBaixo.addEventListener('click', paraBaixo);
 
-  function paraBaixo() {
-    let itemSelecionado = document.querySelector('#selected');
-    let itemAnterior = null;
-    let lista = document.querySelector('#lista-tarefas');
-    let ultimoFilho = lista.lastChild;
+function paraBaixo() {
+  let itemSelecionado = document.querySelector('#selected');
+  let itemAnterior = null;
+  let lista = document.querySelector('#lista-tarefas');
+  let ultimoFilho = lista.lastChild;
 
-    if (itemSelecionado !== null) {
-      itemAnterior = itemSelecionado.nextSibling;
-    }
-    if (
-      itemSelecionado !== null &&
-      itemSelecionado !== ultimoFilho &&
-      itemAnterior !== null
-    ) {
-      lista.insertBefore(itemAnterior, itemSelecionado);
-    }
+  if (itemSelecionado !== null) {
+    itemAnterior = itemSelecionado.nextSibling;
+  }
+  if (
+    itemSelecionado !== null &&
+    itemSelecionado !== ultimoFilho &&
+    itemAnterior !== null
+  ) {
+    lista.insertBefore(itemAnterior, itemSelecionado); // o metodo foi usado inverso para adicionar o nó depois
   }
 
   //! Requisito 14 - com ajuda do Kleverson Eller 19-C
@@ -163,4 +163,4 @@ window.onload = function () {
     let item = document.querySelector('#lista-tarefas');
     item.removeChild(apagar);
   }
-};
+}
