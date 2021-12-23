@@ -1,5 +1,6 @@
 window.onload = function () {
-  //Requisito 5 e 6
+  //! Requisito 5 e 6
+
   let botao = document.querySelector('#criar-tarefa');
   botao.addEventListener('click', novoItem);
 
@@ -19,7 +20,8 @@ window.onload = function () {
     limpaInput.value = '';
   }
 
-  //Requisito 7 e 8 - com ajuda do Kleverson Eller 19-C
+  //! Requisito 7 e 8 - com ajuda do Kleverson Eller 19-C
+
   let corLista = document.querySelector('#lista-tarefas');
   corLista.addEventListener('click', mudaCor);
 
@@ -32,7 +34,7 @@ window.onload = function () {
     }
   }
 
-  // Requisito 9
+  //! Requisito 9
   let riscaLista = document.querySelector('#lista-tarefas');
   riscaLista.addEventListener('dblclick', risca);
 
@@ -51,7 +53,8 @@ window.onload = function () {
     }
   }
 
-  //Requisito 11
+  //! Requisito 11
+
   let deleteFinalizado = document.querySelector('#remover-finalizados');
   deleteFinalizado.addEventListener('click', apagarFinalizado);
 
@@ -62,11 +65,11 @@ window.onload = function () {
     }
   }
 
-  //Requisito 12 - com ajuda do Kleverson Eller 19-C
+  //!Requisito 12 - com ajuda do Kleverson Eller 19-C
   //O método JSON.stringify() converte valores em javascript para uma String  JSON.
   //O método JSON.parse() analisa uma string JSON, construindo o valor ou um objeto JavaScript descrito pela string.
-
   //! Salva Lista:
+
   let salvaLista = document.querySelector('#salvar-tarefas');
   salvaLista.addEventListener('click', listaSalva);
 
@@ -85,6 +88,7 @@ window.onload = function () {
   }
 
   //! Retorno a lista Salva
+
   let retornaListaSalva = localStorage.getItem('listaSalva');
   let transformaObjeto = JSON.parse(retornaListaSalva);
   let listaRetornada = document.querySelector('#lista-tarefas');
@@ -105,9 +109,52 @@ window.onload = function () {
   }
   novaLista();
 
-  //Requisito 13 - com ajuda do Kleverson Eller 19-C
+  //! Requisito 13 - com ajuda do Kleverson Eller 19-C
+  //! Para Cima
+  let botaoCima = document.querySelector('#mover-cima');
+  botaoCima.addEventListener('click', paraCima);
 
-  //Requisito 14 - com ajuda do Kleverson Eller 19-C
+  function paraCima() {
+    let itemSelecionado = document.querySelector('#selected');
+    let itemAnterior = null;
+    let lista = document.querySelector('#lista-tarefas');
+    let primeiroFilho = lista.firstChild;
+    if (itemSelecionado !== null) {
+      itemAnterior = itemSelecionado.previousSibling;
+    }
+    if (
+      itemSelecionado !== null &&
+      itemSelecionado !== primeiroFilho &&
+      itemAnterior !== null
+    ) {
+      lista.insertBefore(itemSelecionado, itemAnterior);
+    }
+  }
+
+  //! Para Baixo
+  let botaoBaixo = document.querySelector('#mover-baixo');
+  botaoBaixo.addEventListener('click', paraBaixo);
+
+  function paraBaixo() {
+    let itemSelecionado = document.querySelector('#selected');
+    let itemAnterior = null;
+    let lista = document.querySelector('#lista-tarefas');
+    let ultimoFilho = lista.lastChild;
+
+    if (itemSelecionado !== null) {
+      itemAnterior = itemSelecionado.nextSibling;
+    }
+    if (
+      itemSelecionado !== null &&
+      itemSelecionado !== ultimoFilho &&
+      itemAnterior !== null
+    ) {
+      lista.insertBefore(itemAnterior, itemSelecionado);
+    }
+  }
+
+  //! Requisito 14 - com ajuda do Kleverson Eller 19-C
+
   let deleteSelecionado = document.querySelector('#remover-selecionado');
   deleteSelecionado.addEventListener('click', apagarSelecionado);
 
