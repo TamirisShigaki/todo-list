@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Projeto pessoal desenvolvido na Trybe, onde tiivemos que desenvolver uma página dinâmica com uma aplicação de lista de tarefas.
+Projeto pessoal desenvolvido na Trybe, onde tivemos que desenvolver uma página dinâmica com uma aplicação de lista de tarefas.
 
 O usuário pode adicionar tarefas, mudar a ordem dos itens da lista, marcá-los como concluídos ou deletá-los. Também é possível salvar a lista para o usuário acesse novamente.
 
